@@ -65,7 +65,7 @@ Options list
 
 unmount_all() {
     local devlist=$(lsblk -nro NAME,TYPE,MOUNTPOINT | \
-        egrep "^[^ ]+ part /run/media/" | cut -d ' ' -f 1)
+        grep -E "^[^ ]+ part /run/media/" | cut -d ' ' -f 1)
     local result=0
     test ! "$devlist" && return
     echo "$devlist" | while IFS= read -r dev ; do

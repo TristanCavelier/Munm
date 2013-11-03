@@ -79,7 +79,7 @@ Options list
 
 mount_all() {
     local devlist=$(lsblk -nro NAME,TYPE,FSTYPE,MOUNTPOINT | \
-        egrep "^[^ ]+ part [^ ]+ $" | egrep -v " (swap) " | cut -d ' ' -f 1)
+        grep -E "^[^ ]+ part [^ ]+ $" | grep -E -v " (swap) " | cut -d ' ' -f 1)
     local result=0
     test ! "$devlist" && return
     echo "$devlist" | while IFS= read -r dev ; do
