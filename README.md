@@ -12,11 +12,11 @@ Common option:
 
 - `-h,--help` Show usage and exit
 
-`m` options:
+`m` option:
 
 - `-a,--mount-all` Mount all partitions
 
-`um` options:
+`um` option:
 
 - `-a,--unmount-all` Unmount all partitions
 
@@ -25,7 +25,7 @@ Common option:
 Show disks and partitions:
 
     $ m
-    $ m # `sudo m` might print more informations
+    $ m  # 'sudo m' might print more informations
 
 Mount /dev/sdb1 and /dev/sdb2 on /run/media/USER (*udisks2*) or /media (*udisks*):
 
@@ -35,7 +35,7 @@ Unmount all:
 
     $ um -a
 
-If *udisks* is not installed, use this program with `sudo`:
+If *udisks* or *udisks2* are not installed, use this program with `sudo`:
 
     $ sudo m sdb1 sdb2
     $ sudo um -a
@@ -51,7 +51,7 @@ Tested on Ubuntu, Debian and ArchLinux.
 
 System wide:
 
-    cp /path/to/{m,um} -t /usr/bin
+    cp /path/to/{m,um} -t /usr/bin  # or '-t /usr/local/bin'
     chmod +x /usr/bin/{m,um}
 
 User only:
@@ -59,4 +59,4 @@ User only:
     cd
     mkdir -p bin
     cp /path/to/{m,um} -t bin
-    echo 'PATH=$HOME/bin:$PATH' >> .bashrc
+    echo 'PATH="$HOME/bin:$PATH"' >> .bashrc
